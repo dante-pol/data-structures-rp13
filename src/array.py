@@ -13,7 +13,7 @@ from typing import Any
 # -remove(item) - удалить первое вхождение элемента
 # -pop(index) - удалить элемент по индексу
 # -count(item) - кол-во вхождений элемента
-# find(item) - найти первое вхождение элемента. если такого элемента нет, вернуть -1
+# -find(item) - найти первое вхождение элемента. если такого элемента нет, вернуть -1
 # -is_empty() - вернуть кол-во элементов
 
 # reverse() - развернуть массив
@@ -130,22 +130,6 @@ class List:
 
         return -1
 
-
-
-
-
-
-
-
-array = List()
-array.add(1)
-array.add(0)
-array.add(-3)
-array.add(9)
-array.add(6)
-
-
-
-
-print(array)
-print(array.find(6))
+    def reverse(self) -> None:
+        for i in range(self.__count // 2):
+            self.__memory[i], self.__memory[self.__count - 1 - i] = self.__memory[self.__count - 1 - i], self.__memory[i]

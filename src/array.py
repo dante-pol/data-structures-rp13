@@ -9,9 +9,9 @@ from typing import Any
 # Интерфейс
 # -add(item) - добавить элемент в конец списка
 # -add_head(item) - добавить элемент в начало списка
-# insert(index, item) - вставить элемент по индексу
+# -insert(index, item) - вставить элемент по индексу
 # -remove(item) - удалить первое вхождение элемента
-# pop(index) - удалить элемент по индексу
+# -pop(index) - удалить элемент по индексу
 # count(item) - кол-во вхождений элемента
 # find(item) - найти первое вхождение элемента. если такого элемента нет, вернуть -1
 # -is_empty() - вернуть кол-во элементов
@@ -106,6 +106,13 @@ class List:
 
         self.__memory[insert_index] = data
 
+    def pop(self, pop_index: int) -> None:
+        self.__memory[pop_index] = None
+
+        for i in range(pop_index, self.__count - 1, 1):
+            self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
+
+
 
 
 
@@ -119,6 +126,6 @@ array.add(-3)
 array.add(9)
 
 
-array.insert(12, 2)
+array.pop(1)
 
 print(array)

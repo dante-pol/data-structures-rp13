@@ -12,7 +12,7 @@ from typing import Any
 # -insert(index, item) - вставить элемент по индексу
 # -remove(item) - удалить первое вхождение элемента
 # -pop(index) - удалить элемент по индексу
-# count(item) - кол-во вхождений элемента
+# -count(item) - кол-во вхождений элемента
 # find(item) - найти первое вхождение элемента. если такого элемента нет, вернуть -1
 # -is_empty() - вернуть кол-во элементов
 
@@ -112,6 +112,16 @@ class List:
         for i in range(pop_index, self.__count - 1, 1):
             self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
 
+    def count(self, item: Any) -> int:
+        count = 0
+
+        for i in range(self.__count):
+
+            if self.__memory[i] == item:
+                count += 1
+
+        return count
+
 
 
 
@@ -124,8 +134,10 @@ array.add(1)
 array.add(0)
 array.add(-3)
 array.add(9)
+array.add(1)
 
 
-array.pop(1)
+
 
 print(array)
+print(array.count(1))

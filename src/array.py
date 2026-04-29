@@ -122,6 +122,14 @@ class List:
 
         return count
 
+    def find(self, item: Any) -> int:
+        for i in range(self.__count):
+
+            if self.__memory[i] == item:
+                return i
+
+        return -1
+
 
 
 
@@ -134,10 +142,10 @@ array.add(1)
 array.add(0)
 array.add(-3)
 array.add(9)
-array.add(1)
+array.add(6)
 
 
 
 
 print(array)
-print(array.count(1))
+print(array.find(6))

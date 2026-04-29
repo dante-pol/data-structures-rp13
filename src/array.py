@@ -53,8 +53,6 @@ class List:
         self.__memory[self.__count] = data
         self.__count += 1
 
-
-
     def remove(self, data: Any) -> None:
 
         if self.__count == 0: return
@@ -96,6 +94,19 @@ class List:
 
         self.__memory[0] = data
 
+    def insert(self, data: Any, insert_index: int) -> None:
+        if self.__count == self.__size:
+            new_size = self.__size + (self.__size // 2)
+
+            self.__memory = List.__realloc(self.__memory, int, self.__size, new_size)
+            self.__size = new_size
+
+        for i in range(self.__count, insert_index - 1, -1):
+            self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
+
+        self.__memory[insert_index] = data
+
+
 
 
 
@@ -108,6 +119,6 @@ array.add(-3)
 array.add(9)
 
 
-array.add_head(12)
+array.insert(12, 2)
 
 print(array)

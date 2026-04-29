@@ -104,7 +104,7 @@ class List:
             self.__memory = List.__realloc(self.__memory, int, self.__size, new_size)
             self.__size = new_size
 
-        for i in range(self.__count, -1, -1):
+        for i in range(self.__count - 1, -1, -1):
             self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
 
         self.__memory[0] = data
@@ -113,6 +113,8 @@ class List:
     # Лучший O(1)
     # Средний O(n)
     # Худший O(n)
+
+
 
     def insert(self, data: Any, insert_index: int) -> None:
         if insert_index < 0 or insert_index > self.__count:  raise ValueError("List index out of range")
@@ -123,7 +125,7 @@ class List:
             self.__memory = List.__realloc(self.__memory, int, self.__size, new_size)
             self.__size = new_size
 
-        for i in range(self.__count, insert_index - 1, -1):
+        for i in range(self.__count - 1, insert_index - 1, -1):
             self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
 
         self.__memory[insert_index] = data

@@ -115,6 +115,8 @@ class List:
     # Худший O(n)
 
     def insert(self, data: Any, insert_index: int) -> None:
+        if insert_index < 0 or insert_index > self.__count:  raise ValueError("List index out of range")
+
         if self.__count == self.__size:
             new_size = self.__size + (self.__size // 2)
 
@@ -132,6 +134,8 @@ class List:
     # Худший O(n)
 
     def pop(self, pop_index: int) -> None:
+        if pop_index < 0 or pop_index > self.__count:  raise ValueError("List index out of range")
+
         self.__memory[pop_index] = None
 
         for i in range(pop_index, self.__count - 1, 1):

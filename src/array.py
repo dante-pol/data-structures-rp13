@@ -7,17 +7,17 @@ from typing import Any
 # 3. Memory
 
 # Интерфейс
-# add(item) - добавить элемент в конец списка
-# add_head(item) - добавить элемент в начало списка
+# -add(item) - добавить элемент в конец списка
+# -add_head(item) - добавить элемент в начало списка
 # insert(index, item) - вставить элемент по индексу
-# remove(item) - удалить первое вхождение элемента
+# -remove(item) - удалить первое вхождение элемента
 # pop(index) - удалить элемент по индексу
 # count(item) - кол-во вхождений элемента
 # find(item) - найти первое вхождение элемента. если такого элемента нет, вернуть -1
-# is_empty() - вернуть кол-во элементов
+# -is_empty() - вернуть кол-во элементов
 
 # reverse() - развернуть массив
-# sort(key, order_by) - отсортировать текущий массив
+# -sort(key, order_by) - отсортировать текущий массив
 
 class List:
 
@@ -43,7 +43,7 @@ class List:
         return str(self.__memory)
 
 
-    def add(self, data: Any) -> Any:
+    def add(self, data: Any) -> None:
         if self.__count == self.__size:
             new_size = self.__size + (self.__size // 2)
 
@@ -84,6 +84,22 @@ class List:
     def is_empty(self) -> bool:
         return self.__count == 0
 
+    def add_head(self, data: Any) -> None:
+        if self.__count == self.__size:
+            new_size = self.__size + (self.__size // 2)
+
+            self.__memory = List.__realloc(self.__memory, int, self.__size, new_size)
+            self.__size = new_size
+
+        for i in range(self.__count, -1, -1):
+            self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
+
+        self.__memory[0] = data
+
+
+
+
+
 
 array = List()
 array.add(1)
@@ -92,6 +108,6 @@ array.add(-3)
 array.add(9)
 
 
-array.sort()
+array.add_head(12)
 
 print(array)

@@ -147,15 +147,9 @@ class LinkedList:
 
     def remove(self, data: Any) -> Node | None:
 
-        iterator = self.__head
+        iterator = self.__search_before_target(data)
 
         if iterator is None: return None
-
-        while iterator.next.data != data:
-
-            if iterator.next is None: return None
-
-            iterator = iterator.next
 
         remove_node = iterator.next
 
@@ -172,15 +166,9 @@ class LinkedList:
 
     def find(self, data: Any) -> Node | None:
 
-        iterator = self.__head
+        iterator = self.__search_before_target(data)
 
         if iterator is None: return None
-
-        while iterator.next.data != data:
-
-            if iterator.next is None: return None
-
-            iterator = iterator.next
 
         node = iterator.next
 
@@ -205,3 +193,18 @@ class LinkedList:
     # Лучшее O(1)
     # Среднее O(1)
     # Худшее O(1)
+
+
+    def __search_before_target(self, target: Any) -> Node | None:
+
+        iterator = self.__head
+
+        if iterator is None: return None
+
+        while iterator.next.data != target:
+
+            if iterator.next is None: return None
+
+            iterator = iterator.next
+
+        return iterator

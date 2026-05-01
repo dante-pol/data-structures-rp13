@@ -21,9 +21,23 @@ from typing import Any
 class Node:
 
     def __init__(self, data: Any, next: Node =None):
-        self.data = data
-        self.next = next
+        self.__data = data
+        self.__next = next
 
+    def __get_data(self) -> Any:
+        return self.__data
+
+    def __set_data(self, new_data: Any) -> None:
+        self.__data = new_data
+
+    def __get_next(self) -> Node:
+        return self.__next
+
+    def __set_next(self, new_next) -> None:
+        self.__next = new_next
+
+    data = property(__get_data, __set_data)
+    next = property(__get_next, __set_next)
 
 class LinkedList:
 
@@ -31,6 +45,18 @@ class LinkedList:
     def __init__(self):
         self.__count = 0
         self.__head = None
+
+    def show(self) -> list[Any]:
+        output = []
+
+        iterator = self.__head
+
+        while iterator is not None:
+            output.append(iterator.data)
+
+            iterator = iterator.next
+
+        return output
 
     def add_last(self, data: Any) -> None:
         node = Node(data=data, next=None)
@@ -75,7 +101,7 @@ class LinkedList:
     def insert(self, position: int, data: Any) -> None:
         if position > self.__count or position < 0: raise ValueError("list index out of range")
 
-        if position == 1:
+        if position == 0:
             self.add_head(data)
 
             return None
@@ -123,19 +149,21 @@ class LinkedList:
 
         iterator = self.__head
 
+        if iterator is None: return None
+
         while iterator.next.data != data:
 
             if iterator.next is None: return None
 
             iterator = iterator.next
 
-        node = iterator.next
+        remove_node = iterator.next
 
         iterator.next = iterator.next.next
 
         self.__count -= 1
 
-        return node
+        return remove_node
 
     # Лучшее O(n)
     # Среднее O(n)
@@ -145,6 +173,8 @@ class LinkedList:
     def find(self, data: Any) -> Node | None:
 
         iterator = self.__head
+
+        if iterator is None: return None
 
         while iterator.next.data != data:
 

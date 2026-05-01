@@ -110,6 +110,22 @@ class LinkedList:
         return node
 
 
+    def find(self, data: Any) -> Node | None:
+
+        iterator = self.__head
+
+        while iterator.next.data != data:
+
+            if iterator.next is None: return None
+
+            iterator = iterator.next
+
+        node = iterator.next
+
+        return node
+
+
+
 
 
 

@@ -86,16 +86,28 @@ class LinkedList:
         iterator = self.__head
         iiterator = 1
 
-        while iiterator <= position:
+        while iiterator <= position and iterator.next is not None:
 
             iterator = iterator.next
             iiterator += 1
 
         return iterator
 
+    def remove(self, data: Any) -> Node | None:
 
+        iterator = self.__head
 
+        while iterator.next.data != data:
 
+            if iterator.next is None: return None
+
+            iterator = iterator.next
+
+        node = iterator.next
+
+        iterator.next = iterator.next.next
+
+        return node
 
 
 

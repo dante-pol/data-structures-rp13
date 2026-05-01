@@ -58,8 +58,11 @@ class List:
 
     def remove(self, data: Any) -> None:
 
-        if self.__count == 0: return
-        if self.__count == 1 and self.__memory[0] == data:  self.__memory[0] = None
+        if self.__count == 0: return None
+
+        if self.__count == 1 and self.__memory[0] == data:
+            self.__memory[0] = None
+            return None
 
         target_index = -1
         for i in range(0, self.__count, 1):
@@ -67,7 +70,7 @@ class List:
                 target_index = i
                 break
 
-        if target_index == -1:  return
+        if target_index == -1:  return None
 
         for i in range(target_index, self.__count - 1, 1):
             self.__memory[i] = self.__memory[i + 1]
@@ -75,7 +78,9 @@ class List:
         self.__count -= 1
         self.__memory[self.__count] = None
 
-    # Лучший O(n)
+        return None
+
+    # Лучший O(1)
     # Средний O(n)
     # Худший O(n)
 
@@ -105,7 +110,7 @@ class List:
             self.__size = new_size
 
         for i in range(self.__count - 1, -1, -1):
-            self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
+            self.__memory[i + 1] = self.__memory[i]
 
         self.__memory[0] = data
         self.__count += 1
@@ -126,7 +131,7 @@ class List:
             self.__size = new_size
 
         for i in range(self.__count - 1, insert_index - 1, -1):
-            self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
+            self.__memory[i + 1] = self.__memory[i]
 
         self.__memory[insert_index] = data
         self.__count += 1
@@ -141,7 +146,7 @@ class List:
         self.__memory[pop_index] = None
 
         for i in range(pop_index, self.__count - 1, 1):
-            self.__memory[i], self.__memory[i + 1] = self.__memory[i + 1], self.__memory[i]
+            self.__memory[i + 1] = self.__memory[i]
 
         self.__count -= 1
 

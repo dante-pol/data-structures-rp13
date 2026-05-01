@@ -53,6 +53,11 @@ class LinkedList:
 
         return None
 
+    # Лучшее O(n)
+    # Среднее O(n)
+    # Худшее O(n)
+
+
     def add_head(self, data: Any) -> None:
         node = Node(data)
 
@@ -61,6 +66,11 @@ class LinkedList:
         self.__head = node
 
         self.__count += 1
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
 
     def insert(self, position: int, data: Any) -> None:
         if position > self.__count or position < 0: raise ValueError("list index out of range")
@@ -86,6 +96,11 @@ class LinkedList:
 
         return None
 
+    # Лучшее O(1)
+    # Среднее O(n)
+    # Худшее O(n)
+
+
     def get(self, position: int) -> Node | None:
         if position > self.__count or position < 0: raise ValueError("list index out of range")
 
@@ -98,6 +113,11 @@ class LinkedList:
             iiterator += 1
 
         return iterator
+
+    # Лучшее O(n)
+    # Среднее O(n)
+    # Худшее O(n)
+
 
     def remove(self, data: Any) -> Node | None:
 
@@ -117,6 +137,11 @@ class LinkedList:
 
         return node
 
+    # Лучшее O(n)
+    # Среднее O(n)
+    # Худшее O(n)
+
+
     def find(self, data: Any) -> Node | None:
 
         iterator = self.__head
@@ -131,16 +156,22 @@ class LinkedList:
 
         return node
 
+    # Лучшее O(n)
+    # Среднее O(n)
+    # Худшее O(n)
+
+
     def count(self) -> int:
         return self.__count
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
 
     def is_empty(self) -> bool:
         return self.__count == 0
 
-
-
-
-
-
-
-
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)

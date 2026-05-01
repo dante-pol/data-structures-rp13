@@ -1,6 +1,5 @@
 from __future__ import annotations
 from typing import Any
-from wsgiref.validate import header_re
 
 
 # ---------------- LinkedList (Односвязный список) -----------------
@@ -62,7 +61,7 @@ class LinkedList:
     def insert(self, position: int, data: Any) -> None:
         if position > self.__count or position < 0: raise ValueError("list index out of range")
 
-        if position == 0:
+        if position == 1:
             self.add_head(data)
 
             return None
@@ -80,6 +79,25 @@ class LinkedList:
         iterator.next = node
 
         return None
+
+    def get(self, position: int) -> Node | None:
+        if position > self.__count or position < 0: raise ValueError("list index out of range")
+
+        iterator = self.__head
+        iiterator = 1
+
+        while iiterator <= position:
+
+            iterator = iterator.next
+            iiterator += 1
+
+        return iterator
+
+
+
+
+
+
 
 
 

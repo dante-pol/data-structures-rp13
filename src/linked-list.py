@@ -1,5 +1,7 @@
 from __future__ import annotations
 from typing import Any
+from wsgiref.validate import header_re
+
 
 # ---------------- LinkedList (Односвязный список) -----------------
 
@@ -51,13 +53,19 @@ class LinkedList:
         return None
 
     def add_head(self, data: Any) -> None:
-        pass
+        node = Node(data)
+
+        node.next = self.__head
+
+        self.__head = node
 
     def insert(self, position: int, data: Any) -> None:
+        if position > self.__count or position < 0: raise ValueError("list index out of range")
 
-        if self.__count == 0:
-            # дома
-            pass
+        if position == 0:
+            self.add_head(data)
+
+            return None
 
         node = Node(data, next=None)
 
@@ -70,6 +78,8 @@ class LinkedList:
 
         node.next = iterator.next
         iterator.next = node
+
+        return None
 
 
 

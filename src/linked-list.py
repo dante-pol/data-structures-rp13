@@ -37,6 +37,7 @@ class LinkedList:
         if self.__count == 0:
             self.__head = node
 
+            return None
 
         iterator = self.__head
 
@@ -46,6 +47,8 @@ class LinkedList:
         iterator.next = node
 
         self.__count += 1
+
+        return None
 
     def add_head(self, data: Any) -> None:
         pass

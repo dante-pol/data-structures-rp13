@@ -58,6 +58,8 @@ class LinkedList:
 
         self.__head = node
 
+        self.__count += 1
+
     def insert(self, position: int, data: Any) -> None:
         if position > self.__count or position < 0: raise ValueError("list index out of range")
 
@@ -77,6 +79,8 @@ class LinkedList:
 
         node.next = iterator.next
         iterator.next = node
+
+        self.__count += 1
 
         return None
 
@@ -107,8 +111,9 @@ class LinkedList:
 
         iterator.next = iterator.next.next
 
-        return node
+        self.__count -= 1
 
+        return node
 
     def find(self, data: Any) -> Node | None:
 
@@ -124,6 +129,17 @@ class LinkedList:
 
         return node
 
+    def count(self) -> int:
+
+        iterator = self.__head
+        iiterator = 1
+
+        while iterator.next is not None:
+
+            iterator = iterator.next
+            iiterator += 1
+
+        return iiterator
 
 
 

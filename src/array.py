@@ -103,11 +103,7 @@ class List:
     # Худший O(1)
 
     def add_head(self, data: Any) -> None:
-        if self.__count == self.__size:
-            new_size = self.__size + (self.__size // 2)
-
-            self.__memory = List.__realloc(self.__memory, int, self.__size, new_size)
-            self.__size = new_size
+        self.__try_expand_memory()
 
         for i in range(self.__count - 1, -1, -1):
             self.__memory[i + 1] = self.__memory[i]
@@ -124,11 +120,7 @@ class List:
     def insert(self, data: Any, insert_index: int) -> None:
         if insert_index < 0 or insert_index > self.__count:  raise ValueError("List index out of range")
 
-        if self.__count == self.__size:
-            new_size = self.__size + (self.__size // 2)
-
-            self.__memory = List.__realloc(self.__memory, int, self.__size, new_size)
-            self.__size = new_size
+        self.__try_expand_memory()
 
         for i in range(self.__count - 1, insert_index - 1, -1):
             self.__memory[i + 1] = self.__memory[i]
@@ -183,6 +175,14 @@ class List:
     def reverse(self) -> None:
         for i in range(self.__count // 2):
             self.__memory[i], self.__memory[self.__count - 1 - i] = self.__memory[self.__count - 1 - i], self.__memory[i]
+
+    def __try_expand_memory(self) -> None:
+
+        if self.__count == self.__size:
+            new_size = self.__size + (self.__size // 2)
+
+            self.__memory = List.__realloc(self.__memory, int, self.__size, new_size)
+            self.__size = new_size
 
     # Лучший O(1)
     # Средний O(n)

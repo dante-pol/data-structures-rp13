@@ -38,6 +38,8 @@ class LinkedList:
         if self.__count == 0:
             self.__head = node
 
+            self.__count += 1
+
             return None
 
         iterator = self.__head
@@ -130,16 +132,10 @@ class LinkedList:
         return node
 
     def count(self) -> int:
+        return self.__count
 
-        iterator = self.__head
-        iiterator = 1
-
-        while iterator.next is not None:
-
-            iterator = iterator.next
-            iiterator += 1
-
-        return iiterator
+    def is_empty(self) -> bool:
+        return self.__count == 0
 
 
 

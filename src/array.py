@@ -42,8 +42,7 @@ class List:
     def __str__(self):
         return str(self.__memory)
 
-
-    def add(self, data: Any) -> Any:
+    def add(self, data: Any) -> None:
         if self.__count == self.__size:
             new_size = self.__size + (self.__size // 2)
 
@@ -53,12 +52,17 @@ class List:
         self.__memory[self.__count] = data
         self.__count += 1
 
-
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(n)
 
     def remove(self, data: Any) -> None:
 
-        if self.__count == 0: return
-        if self.__count == 1 and self.__memory[0] == data:  self.__memory[0] = None
+        if self.__count == 0: return None
+
+        if self.__count == 1 and self.__memory[0] == data:
+            self.__memory[0] = None
+            return None
 
         target_index = -1
         for i in range(0, self.__count, 1):
@@ -66,13 +70,19 @@ class List:
                 target_index = i
                 break
 
-        if target_index == -1:  return
+        if target_index == -1:  return None
 
         for i in range(target_index, self.__count - 1, 1):
             self.__memory[i] = self.__memory[i + 1]
 
         self.__count -= 1
         self.__memory[self.__count] = None
+
+        return None
+
+    # Лучший O(1)
+    # Средний O(n)
+    # Худший O(n)
 
     def sort(self,  order_by= lambda x, y: x < y, key= lambda obj: obj):
 
@@ -81,17 +91,99 @@ class List:
                 if not order_by(key(self.__memory[j]), key(self.__memory[j + 1])):
                     self.__memory[j], self.__memory[j + 1] = self.__memory[j + 1], self.__memory[j]
 
+    # Лучший O(n^2)
+    # Средний O(n^2)
+    # Худший O(n^2)
+
     def is_empty(self) -> bool:
         return self.__count == 0
 
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(1)
 
-array = List()
-array.add(1)
-array.add(0)
-array.add(-3)
-array.add(9)
+    def add_head(self, data: Any) -> None:
+        self.__try_expand_memory()
+
+        for i in range(self.__count - 1, -1, -1):
+            self.__memory[i + 1] = self.__memory[i]
+
+        self.__memory[0] = data
+        self.__count += 1
+
+    # Лучший O(1)
+    # Средний O(n)
+    # Худший O(n)
 
 
-array.sort()
 
-print(array)
+    def insert(self, data: Any, insert_index: int) -> None:
+        if insert_index < 0 or insert_index > self.__count:  raise ValueError("List index out of range")
+
+        self.__try_expand_memory()
+
+        for i in range(self.__count - 1, insert_index - 1, -1):
+            self.__memory[i + 1] = self.__memory[i]
+
+        self.__memory[insert_index] = data
+        self.__count += 1
+
+    # Лучший O(1)
+    # Средний O(n)
+    # Худший O(n)
+
+    def pop(self, pop_index: int) -> None:
+        if pop_index < 0 or pop_index > self.__count:  raise ValueError("List index out of range")
+
+        self.__memory[pop_index] = None
+
+        for i in range(pop_index, self.__count - 1, 1):
+            self.__memory[i + 1] = self.__memory[i]
+
+        self.__count -= 1
+
+    # Лучший O(1)
+    # Средний O(n)
+    # Худший O(n)
+
+    def count(self, item: Any) -> int:
+        count = 0
+
+        for i in range(self.__count):
+
+            if self.__memory[i] == item:
+                count += 1
+
+        return count
+
+    # Лучший O(1)
+    # Средний O(n)
+    # Худший O(n)
+
+    def find(self, item: Any) -> int:
+        for i in range(self.__count):
+
+            if self.__memory[i] == item:
+                return i
+
+        return -1
+
+    # Лучший O(1)
+    # Средний O(n)
+    # Худший O(n)
+
+    def reverse(self) -> None:
+        for i in range(self.__count // 2):
+            self.__memory[i], self.__memory[self.__count - 1 - i] = self.__memory[self.__count - 1 - i], self.__memory[i]
+
+    def __try_expand_memory(self) -> None:
+
+        if self.__count == self.__size:
+            new_size = self.__size + (self.__size // 2)
+
+            self.__memory = List.__realloc(self.__memory, int, self.__size, new_size)
+            self.__size = new_size
+
+    # Лучший O(1)
+    # Средний O(n)
+    # Худший O(n)

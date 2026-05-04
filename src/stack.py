@@ -33,6 +33,10 @@ class Stack:
         self.__top = node
         self.__count += 1
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
     def pop(self) -> Any:
         if self.is_empty():
             return None
@@ -43,29 +47,25 @@ class Stack:
 
         return buff
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def peek(self) -> Any:
         if self.is_empty():
             return None
 
         return self.__top.data
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def is_empty(self) -> bool:
         return self.__count == 0
-#
-# s1 = Stack()
-# s1.push("Kara")
-# s1.push("3xKara")
-# s1.push("30xKara")
-# s1.push("300xKara")
-# s1.push("3000xKara")
-#
-# print(s1.peek())
-# print(s1.pop())
-# print(s1.peek())
-# print(s1.pop())
-# print(s1.pop())
-# print(s1.pop())
-# print(s1.pop())
-# print(s1.pop())
-# print(s1.pop())
-# print(s1.pop())
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)

@@ -141,5 +141,3 @@ def test_is_empty_positive(create_linked_list):
     linked_list = create_linked_list
 
     assert linked_list.is_empty() == False
-
-

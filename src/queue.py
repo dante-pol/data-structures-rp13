@@ -1,3 +1,6 @@
+from __future__ import annotations
+from typing import Any
+
 # --------- Queue (очередь) ---------
 
 # ----- Fields () -----
@@ -14,17 +17,69 @@
 
 class Queue:
 
+    class Node:
+        def __init__(self, data: Any, prev = None):
+            self.__data = data
+            self.__prev = prev
+
+        def __get_data(self) -> Any:
+            return self.__data
+
+        def __get_prev(self) -> None:
+            return self.__prev
+
+        def __set_prev(self, new_prev) -> None:
+            self.__prev = new_prev
+
+        data = property(__get_data)
+        prev = property(__get_prev, __set_prev)
+
     def __init__(self):
-        pass
+        self.__head = None
+        self.__tail = None
+        self.__count = 0
 
-    def enqueue(self):
-        pass
+    def enqueue(self, data: Any) -> None:
+        node = Queue.Node(data)
 
-    def dequeue(self):
-        pass
+        if self.is_empty():
+            self.__head = node
+            self.__tail = node
 
-    def peek(self):
-        pass
+            self.__count += 1
 
-    def is_empty(self):
-        pass
+            return None
+
+        self.__tail.prev = node
+        self.__tail = node
+
+        self.__count += 1
+
+        return None
+
+    def dequeue(self) -> None:
+        if self.is_empty():
+            return None
+
+        self.__head = self.__head.prev
+
+        self.__count -= 1
+
+        return None
+
+    def peek(self) -> Any:
+        if self.is_empty():
+            return None
+
+        return self.__head.data
+
+    def is_empty(self) -> bool:
+        return self.__count == 0
+
+queue = Queue()
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+
+print(queue.peek())
+

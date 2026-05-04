@@ -57,6 +57,11 @@ class Queue:
 
         return None
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def dequeue(self) -> None:
         if self.is_empty():
             return None
@@ -67,19 +72,25 @@ class Queue:
 
         return None
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def peek(self) -> Any:
         if self.is_empty():
             return None
 
         return self.__head.data
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def is_empty(self) -> bool:
         return self.__count == 0
 
-queue = Queue()
-queue.enqueue(1)
-queue.enqueue(2)
-queue.enqueue(3)
-
-print(queue.peek())
-
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)

@@ -86,13 +86,18 @@ class DoubleLinkedList:
 
     def delete_first(self) -> None:
 
-        if self.is_empty():
-            return None
+        if self.is_empty(): return None
 
         self.__head = self.__head.next
 
-        if not self.__count == 1: self.__head.prev = None
+        if self.__count == 1:
 
+            self.__tail = self.__tail.next
+            self.__count -= 1
+
+            return None
+
+        self.__head.prev = None
         self.__count -= 1
 
         return None

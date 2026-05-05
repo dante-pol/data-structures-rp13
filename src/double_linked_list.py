@@ -168,7 +168,7 @@ class DoubleLinkedList:
 
     def remove(self, data: Any) -> Node | None:
 
-        iterator = self.__search_before_target(data)
+        iterator = self.find(data)
 
         if iterator is None: return None
 
@@ -178,7 +178,7 @@ class DoubleLinkedList:
         return None
 
 
-    def __search_before_target(self, target: Any) -> Node | None:
+    def find(self, target: Any) -> Node | None:
 
         iterator = self.__head
 
@@ -193,11 +193,5 @@ class DoubleLinkedList:
         return iterator
 
 
-
-
     def is_empty(self) -> bool:
         return self.__count == 0
-
-
-
-

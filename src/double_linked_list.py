@@ -193,5 +193,9 @@ class DoubleLinkedList:
         return iterator
 
 
+    def count(self) -> int:
+        return self.__count
+
+
     def is_empty(self) -> bool:
         return self.__count == 0

@@ -122,6 +122,48 @@ class DoubleLinkedList:
         return None
 
 
+    def insert(self, position: int, data: Any) -> None:
+
+        if position > self.__count or position < 0: raise ValueError("list index out of range")
+
+        if position == 0:
+            self.add_head(data)
+
+            return None
+
+        node = DoubleLinkedList.Node(data, next=None)
+
+        iterator = self.__search_node(position)
+
+        node.prev = iterator.prev
+        node.next = iterator
+
+        iterator.prev = node
+
+        node.prev.next = node
+
+        return None
+
+
     def is_empty(self) -> bool:
         return self.__count == 0
+
+
+    def __search_node(self, position: int) -> Node:
+
+        if position > self.__count // 2:
+            iterator = self.__tail
+            move = iterator.prev
+
+        else:
+            iterator = self.__head
+            move = iterator.next
+
+        iiterator = 0
+
+        while iiterator == position:
+            iterator = move
+            iiterator += 1
+
+        return iterator
 

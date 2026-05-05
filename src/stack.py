@@ -1,4 +1,5 @@
-from typing import Any
+from typing import Any, Self
+
 
 # ----------- Stack (Стэк) -----------
 
@@ -16,9 +17,24 @@ class Stack:
 
     class Node:
 
-        def __init__(self, data, prev=None):
-            self.data = data
-            self.prev = prev
+        def __init__(self, data, prev: Self = None):
+            self.__data = data
+            self.__prev = prev
+
+        def __get_data(self) -> Any:
+            return self.__data
+
+        def __set_data(self, new_data: Any) -> None:
+            self.__data = new_data
+
+        def __get_prev(self) -> Self:
+            return self.__prev
+
+        def __set_prev(self, new_prev: Self) -> None:
+            self.__prev = new_prev
+
+        data = property(__get_data)
+        prev = property(__get_prev, __set_prev)
 
     def __init__(self):
         self.__top = None

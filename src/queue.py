@@ -1,5 +1,6 @@
 from __future__ import annotations
-from typing import Any
+from typing import Any, Self
+
 
 # --------- Queue (очередь) ---------
 
@@ -18,17 +19,17 @@ from typing import Any
 class Queue:
 
     class Node:
-        def __init__(self, data: Any, prev = None):
+        def __init__(self, data: Any, prev: Self = None):
             self.__data = data
             self.__prev = prev
 
         def __get_data(self) -> Any:
             return self.__data
 
-        def __get_prev(self) -> None:
+        def __get_prev(self) -> Self:
             return self.__prev
 
-        def __set_prev(self, new_prev) -> None:
+        def __set_prev(self, new_prev: Self) -> None:
             self.__prev = new_prev
 
         data = property(__get_data)

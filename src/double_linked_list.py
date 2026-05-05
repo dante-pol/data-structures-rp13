@@ -92,12 +92,31 @@ class DoubleLinkedList:
 
         if self.__count == 1:
 
-            self.__tail = self.__tail.next
+            self.__tail = None
             self.__count -= 1
 
             return None
 
         self.__head.prev = None
+        self.__count -= 1
+
+        return None
+
+
+    def delete_last(self) -> None:
+
+        if self.is_empty(): return None
+
+        self.__tail = self.__tail.prev
+
+        if self.__count == 1:
+
+            self.__head = None
+            self.__count -= 1
+
+            return None
+
+        self.__tail.next = None
         self.__count -= 1
 
         return None

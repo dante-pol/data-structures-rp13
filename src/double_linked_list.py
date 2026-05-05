@@ -63,6 +63,27 @@ class DoubleLinkedList:
         return None
 
 
+    def add_head(self, data: Any) -> None:
+        node = DoubleLinkedList.Node(data=data, next=None)
+
+        if self.is_empty():
+            self.__head = node
+            self.__tail = node
+
+            self.__count += 1
+
+            return None
+
+        self.__head.prev = node
+        node.next = self.__head
+
+        self.__head = node
+
+        self.__count += 1
+
+        return None
+
+
     def is_empty(self) -> bool:
         return self.__count == 0
 

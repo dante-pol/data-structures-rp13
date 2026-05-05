@@ -133,7 +133,7 @@ class DoubleLinkedList:
 
         node = DoubleLinkedList.Node(data, next=None)
 
-        iterator = self.__search_node(position)
+        iterator = self.get(position)
 
         node.prev = iterator.prev
         node.next = iterator
@@ -145,11 +145,9 @@ class DoubleLinkedList:
         return None
 
 
-    def is_empty(self) -> bool:
-        return self.__count == 0
+    def get(self, position: int) -> Node:
 
-
-    def __search_node(self, position: int) -> Node:
+        if position > self.__count or position < 0: raise ValueError("list index out of range")
 
         if position > self.__count // 2:
             iterator = self.__tail
@@ -166,4 +164,40 @@ class DoubleLinkedList:
             iiterator += 1
 
         return iterator
+
+
+    def remove(self, data: Any) -> Node | None:
+
+        iterator = self.__search_before_target(data)
+
+        if iterator is None: return None
+
+        iterator.prev.next = iterator.next
+        iterator.next.prev = iterator.prev
+
+        return None
+
+
+    def __search_before_target(self, target: Any) -> Node | None:
+
+        iterator = self.__head
+
+        if iterator is None: return None
+
+        while iterator.data != target:
+
+            if iterator.next is None: return None
+
+            iterator = iterator.next
+
+        return iterator
+
+
+
+
+    def is_empty(self) -> bool:
+        return self.__count == 0
+
+
+
 

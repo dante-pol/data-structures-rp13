@@ -159,7 +159,7 @@ class LinkedList:
 
         return remove_node
 
-    # Лучшее O(n)
+    # Лучшее O(1)
     # Среднее O(n)
     # Худшее O(n)
 
@@ -174,7 +174,7 @@ class LinkedList:
 
         return node
 
-    # Лучшее O(n)
+    # Лучшее O(1)
     # Среднее O(n)
     # Худшее O(n)
 

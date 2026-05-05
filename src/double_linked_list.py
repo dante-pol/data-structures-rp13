@@ -62,6 +62,10 @@ class DoubleLinkedList:
 
         return None
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
 
     def add_head(self, data: Any) -> None:
         node = DoubleLinkedList.Node(data=data, next=None)
@@ -83,6 +87,10 @@ class DoubleLinkedList:
 
         return None
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
 
     def delete_first(self) -> None:
 
@@ -102,6 +110,10 @@ class DoubleLinkedList:
 
         return None
 
+    # Лучшее O(1)
+    # Среднее O(n)
+    # Худшее O(n)
+
 
     def delete_last(self) -> None:
 
@@ -120,6 +132,10 @@ class DoubleLinkedList:
         self.__count -= 1
 
         return None
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
 
 
     def insert(self, position: int, data: Any) -> None:
@@ -144,6 +160,10 @@ class DoubleLinkedList:
 
         return None
 
+    # Лучшее O(1)
+    # Среднее O(n)
+    # Худшее O(n)
+
 
     def get(self, position: int) -> Node:
 
@@ -165,6 +185,10 @@ class DoubleLinkedList:
 
         return iterator
 
+    # Лучшее O(1)
+    # Среднее O(n)
+    # Худшее O(n)
+
 
     def remove(self, data: Any) -> Node | None:
 
@@ -176,6 +200,10 @@ class DoubleLinkedList:
         iterator.next.prev = iterator.prev
 
         return None
+
+    # Лучшее O(1)
+    # Среднее O(n)
+    # Худшее O(n)
 
 
     def find(self, target: Any) -> Node | None:
@@ -192,10 +220,22 @@ class DoubleLinkedList:
 
         return iterator
 
+    # Лучшее O(1)
+    # Среднее O(n)
+    # Худшее O(n)
+
 
     def count(self) -> int:
         return self.__count
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
 
     def is_empty(self) -> bool:
         return self.__count == 0
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)

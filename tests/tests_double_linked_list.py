@@ -224,6 +224,3 @@ def test_is_empty_positive_empty(create_empty_double_linked_list):
     list = create_empty_double_linked_list
 
     assert list.is_empty() == True
-
-
-

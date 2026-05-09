@@ -106,7 +106,7 @@ class Deq:
         return data
 
     def peek(self) -> Any:
-        pass
+        return self.__head.data
 
     def peek_tail(self) -> Any:
         pass

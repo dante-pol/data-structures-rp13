@@ -112,4 +112,4 @@ class Deq:
         return self.__tail.data
 
     def is_empty(self) -> bool:
-        pass
+        return self.__count == 0

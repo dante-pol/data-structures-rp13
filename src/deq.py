@@ -109,7 +109,7 @@ class Deq:
         return self.__head.data
 
     def peek_tail(self) -> Any:
-        pass
+        return self.__tail.data
 
     def is_empty(self) -> bool:
         pass

@@ -17,7 +17,7 @@ class PriorityQueue:
         return self.__heap.peek()
 
     def is_empty(self) -> bool:
-        pass
+        return self.__heap.is_empty()
 
 
 class BinaryHeap:
@@ -41,6 +41,9 @@ class BinaryHeap:
 
     def peek(self) -> Any:
         return self.__heap[0][1]
+
+    def is_empty(self) -> bool:
+        return len(self.__heap) == 0
 
     def __up(self) -> None:
         new_item = len(self.__heap) - 1

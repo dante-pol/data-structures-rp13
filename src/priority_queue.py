@@ -29,4 +29,12 @@ class BinaryHeap:
         self.up()
 
     def up(self) -> None:
-        pass
+        new_item = len(self.__heap) - 1
+        parent = (new_item - 1) // 2
+
+        while new_item != 0 and self.__heap[new_item] > self.__heap[parent]:
+
+            self.__heap[new_item], self.__heap[parent] = self.__heap[parent], self.__heap[new_item]
+
+            new_item = parent
+            parent = (new_item - 1) // 2

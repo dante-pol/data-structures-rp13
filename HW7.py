@@ -173,5 +173,5 @@ class TaskStack:
         return self.__count == 0
 
     def count(self) -> int:
-        pass
+        return self.__count
 

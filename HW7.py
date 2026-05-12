@@ -68,7 +68,12 @@ class PersonList:
         return None
 
     def remove_first_person(self) -> PersonCard | None:
-        pass
+        if self.is_empty():
+            return None
+
+        self.__head = self.__head.next
+
+        return None
 
     def remove_last_person(self) -> PersonCard | None:
         pass

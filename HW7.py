@@ -76,7 +76,17 @@ class PersonList:
         return None
 
     def remove_last_person(self) -> PersonCard | None:
-        pass
+        if self.is_empty():
+            return None
+
+        iterator = self.__head
+
+        while not iterator.next.next is None:
+            iterator = iterator.next
+
+        iterator.next = None
+
+        return None
 
     def remove_person(self, card: PersonCard) -> PersonCard | None:
         pass

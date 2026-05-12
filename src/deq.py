@@ -42,6 +42,11 @@ class Deq:
 
         return None
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def enqueue_head(self, data: Any) -> None:
         node = Deq.Node(data=data)
 
@@ -61,6 +66,10 @@ class Deq:
         self.__count += 1
 
         return None
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
 
 
     def dequeue(self) -> Any | None:
@@ -84,6 +93,11 @@ class Deq:
 
         return data
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def dequeue_tail(self) -> Any | None:
         if self.is_empty():
             return None
@@ -105,11 +119,30 @@ class Deq:
 
         return data
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def peek(self) -> Any:
         return self.__head.data
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
 
     def peek_tail(self) -> Any:
         return self.__tail.data
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
+
     def is_empty(self) -> bool:
         return self.__count == 0
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)

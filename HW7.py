@@ -167,7 +167,7 @@ class TaskStack:
         return buff
 
     def peek(self) -> ProjectTask | None:
-        pass
+        return self.__top
 
     def is_empty(self) -> bool:
         pass

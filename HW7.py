@@ -227,7 +227,7 @@ class PrintQueue:
         return self.__head
 
     def is_empty(self) -> bool:
-        pass
+        return self.__count == 0
 
     def count(self) -> int:
         pass

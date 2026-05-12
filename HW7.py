@@ -199,7 +199,20 @@ class PrintQueue:
         self.__count = 0
 
     def enqueue(self, document: PrintDocument) -> None:
-        pass
+        if self.is_empty():
+            self.__head = document
+            self.__tail = document
+
+            self.__count += 1
+
+            return None
+
+        self.__tail.prev = document
+        self.__tail = document
+
+        self.__count += 1
+
+        return None
 
     def dequeue(self) -> PrintDocument | None:
         pass

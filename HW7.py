@@ -17,7 +17,10 @@ class PersonList:
 
     def add_person(self, card: PersonCard) -> None:
         if self.is_empty():
+
             self.__head = card
+            self.__count += 1
+
             return None
 
         card.next = self.__head
@@ -28,7 +31,23 @@ class PersonList:
         return None
 
     def append_person(self, card: PersonCard) -> None:
-        pass
+        if self.is_empty():
+
+            self.__head = card
+            self.__count += 1
+
+            return None
+
+        iterator = self.__head
+
+        while not iterator.next is None:
+            iterator = iterator.next
+
+        iterator.next = card
+
+        self.__count += 1
+
+        return None
 
     def insert_person_at(self, position: int, card: PersonCard) -> None:
         pass

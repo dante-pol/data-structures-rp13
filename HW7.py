@@ -11,6 +11,9 @@ class PersonList:
 
             self.next = next
 
+        def __eq__(self, another: PersonList.PersonCard):
+            return self.name == another.name and self.age == another.age and self.occupation == self.occupation
+
     def __init__(self):
         self.__count = 0
         self.__head = None
@@ -73,6 +76,8 @@ class PersonList:
 
         self.__head = self.__head.next
 
+        self.__count -= 1
+
         return None
 
     def remove_last_person(self) -> PersonCard | None:
@@ -86,10 +91,27 @@ class PersonList:
 
         iterator.next = None
 
+        self.__count -= 1
+
         return None
 
     def remove_person(self, card: PersonCard) -> PersonCard | None:
-        pass
+
+        iterator = self.__head
+
+        while not iterator.next == card:
+
+            if iterator.next is None:
+                return None
+
+            iterator = iterator.next
+
+        iterator.next = iterator.next.next
+
+        self.__count -= 1
+
+        return None
+
 
     def clear_all(self) -> None:
         pass

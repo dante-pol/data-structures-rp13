@@ -10,14 +10,32 @@ class PriorityQueue:
     def enqueue(self, priority: int, data: Any) -> None:
         self.__heap.push(priority, data)
 
+    # Лучшее O(1)
+    # Среднее O(log n)
+    # Худшее O(log n)
+
+
     def dequeue(self) -> Any:
         return self.__heap.pop()
+
+    # Лучшее O(1)
+    # Среднее O(log n)
+    # Худшее O(log n)
+
 
     def peek(self) -> Any:
         return self.__heap.peek()
 
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
+
     def is_empty(self) -> bool:
         return self.__heap.is_empty()
+
+    # Лучшее O(1)
+    # Среднее O(1)
+    # Худшее O(1)
 
 
 class BinaryHeap:

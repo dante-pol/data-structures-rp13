@@ -16,7 +16,16 @@ class PersonList:
         self.__head = None
 
     def add_person(self, card: PersonCard) -> None:
+        if self.is_empty():
+            self.__head = card
+            return None
 
+        card.next = self.__head
+        self.__head = card
+
+        self.__count += 1
+
+        return None
 
     def append_person(self, card: PersonCard) -> None:
         pass

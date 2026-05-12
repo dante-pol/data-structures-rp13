@@ -114,7 +114,7 @@ class PersonList:
 
 
     def clear_all(self) -> None:
-        pass
+        self.__head = None
 
     def total_people(self) -> int:
         pass

@@ -157,7 +157,14 @@ class TaskStack:
         self.__count += 1
 
     def pop(self) -> ProjectTask | None:
-        pass
+
+        if self.is_empty():
+            return None
+
+        buff = self.__top
+        self.__top = self.__top.prev
+
+        return buff
 
     def peek(self) -> ProjectTask | None:
         pass

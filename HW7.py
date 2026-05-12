@@ -215,7 +215,13 @@ class PrintQueue:
         return None
 
     def dequeue(self) -> PrintDocument | None:
-        pass
+        if self.is_empty(): return None
+
+        self.__head = self.__head.prev
+
+        self.__count -= 1
+
+        return None
 
     def peek(self) -> PrintDocument | None:
         pass

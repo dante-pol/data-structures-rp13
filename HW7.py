@@ -16,7 +16,7 @@ class PersonList:
         self.__head = None
 
     def add_person(self, card: PersonCard) -> None:
-        pass
+
 
     def append_person(self, card: PersonCard) -> None:
         pass
@@ -40,4 +40,4 @@ class PersonList:
         pass
 
     def is_empty(self) -> bool:
-        pass
+        return self.__count == 0

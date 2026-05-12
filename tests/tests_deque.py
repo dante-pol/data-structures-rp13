@@ -153,3 +153,15 @@ def test_peek_tail_boundary_one_item(one_item):
 
     assert deque.peek_tail() == 1
 
+
+def test_is_empty_positive_true():
+    queue = Deque()
+
+    assert queue.is_empty() == True
+
+
+def test_is_empty_positive_false(one_item):
+    queue = one_item
+
+    assert queue.is_empty() == False
+

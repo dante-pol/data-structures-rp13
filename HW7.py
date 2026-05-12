@@ -141,13 +141,20 @@ class TaskStack:
             self.description = description
             self.due_date = due_date
 
+            self.prev = None
+
     def __init__(self):
 
         self.__top = None
         self.__count = 0
 
     def push(self, task: ProjectTask) -> None:
-        pass
+        if not self.is_empty():
+            task.prev = self.__top
+
+        self.__top = task
+
+        self.__count += 1
 
     def pop(self) -> ProjectTask | None:
         pass

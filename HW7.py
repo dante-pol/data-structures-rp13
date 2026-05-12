@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from datetime import datetime
+
+
+# task 1
 
 class PersonList:
     class PersonCard:
@@ -121,3 +125,39 @@ class PersonList:
 
     def is_empty(self) -> bool:
         return self.__count == 0
+
+
+# task2
+
+
+class TaskStack:
+
+    class ProjectTask:
+
+        description: str
+        due_date: datetime
+
+        def __init__(self, description: str, due_date: datetime):
+            self.description = description
+            self.due_date = due_date
+
+    def __init__(self):
+
+        self.__top = None
+        self.__count = 0
+
+    def push(self, task: ProjectTask) -> None:
+        pass
+
+    def pop(self) -> ProjectTask | None:
+        pass
+
+    def peek(self) -> ProjectTask | None:
+        pass
+
+    def is_empty(self) -> bool:
+        pass
+
+    def count(self) -> int:
+        pass
+

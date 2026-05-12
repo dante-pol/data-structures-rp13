@@ -50,7 +50,22 @@ class PersonList:
         return None
 
     def insert_person_at(self, position: int, card: PersonCard) -> None:
-        pass
+        if position > self.__count or position < 0:  raise ValueError()
+
+        iterator = self.__head
+        iiterator = 0
+
+        while iiterator < position - 1:
+
+            iterator = iterator.next
+            iiterator += 1
+
+        card.next = iterator.next
+        iterator.next = card
+
+        self.__count += 1
+
+        return None
 
     def remove_first_person(self) -> PersonCard | None:
         pass

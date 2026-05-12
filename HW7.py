@@ -224,7 +224,7 @@ class PrintQueue:
         return None
 
     def peek(self) -> PrintDocument | None:
-        pass
+        return self.__head
 
     def is_empty(self) -> bool:
         pass

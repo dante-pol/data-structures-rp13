@@ -175,3 +175,41 @@ class TaskStack:
     def count(self) -> int:
         return self.__count
 
+
+# task 3
+
+
+class PrintQueue:
+
+    class PrintDocument:
+
+        tittle: str
+        number_pages: int
+
+        def __init__(self, tittle: str, number_pages: int):
+            self.tittle = tittle
+            self.number_pages = number_pages
+
+            self.prev = None
+
+    def __init__(self):
+        self.__head = None
+        self.__tail = None
+
+        self.__count = 0
+
+    def enqueue(self, document: PrintDocument) -> None:
+        pass
+
+    def dequeue(self) -> PrintDocument | None:
+        pass
+
+    def peek(self) -> PrintDocument | None:
+        pass
+
+    def is_empty(self) -> bool:
+        pass
+
+    def count(self) -> int:
+        pass
+

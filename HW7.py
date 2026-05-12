@@ -117,7 +117,7 @@ class PersonList:
         self.__head = None
 
     def total_people(self) -> int:
-        pass
+        return self.__count
 
     def is_empty(self) -> bool:
         return self.__count == 0

@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Any
 
 
-class Deq:
+class Deque:
 
     __head: Node | None
     __tail: Node | None
@@ -23,7 +23,7 @@ class Deq:
 
 
     def enqueue(self, data: Any) -> None:
-        node = Deq.Node(data=data)
+        node = Deque.Node(data=data)
 
         if self.is_empty():
             self.__head = node
@@ -48,7 +48,7 @@ class Deq:
 
 
     def enqueue_head(self, data: Any) -> None:
-        node = Deq.Node(data=data)
+        node = Deque.Node(data=data)
 
         if self.is_empty():
             self.__head = node
@@ -125,6 +125,9 @@ class Deq:
 
 
     def peek(self) -> Any:
+        if self.is_empty():
+            return None
+
         return self.__head.data
 
     # Лучшее O(1)
@@ -133,6 +136,9 @@ class Deq:
 
 
     def peek_tail(self) -> Any:
+        if self.is_empty():
+            return None
+
         return self.__tail.data
 
     # Лучшее O(1)

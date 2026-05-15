@@ -3,7 +3,7 @@ from typing import Any
 
 # Линейный способ разрешения коллизий
 
-class HashMap:
+class HashMap1:
 
     def __init__(self, size: int = 16):
         self.__keys = [None] * size
@@ -22,3 +22,6 @@ class HashMap:
 
     def count(self) -> int:
         pass
+
+    def __hash(self, key: Any) -> int:
+        return hash(key) % len(self.__memory)

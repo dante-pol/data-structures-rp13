@@ -150,7 +150,21 @@ class HashMap2:
         raise ValueError("Нет искомого ключа")
 
     def remove(self, key: Any) -> Any:
-        pass
+        index = self.__hash(key)
+
+        bucket = self.__memory[index]
+
+        if bucket is None:
+            raise ValueError ("bucket пустой")
+
+        for i in range(len(bucket)):
+
+            if key == bucket[i][0]:
+                bucket[i].pop()
+
+                return None
+
+        raise ValueError("Нет искомого ключа")
 
     def count(self) -> int:
         return self.__count

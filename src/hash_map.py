@@ -156,4 +156,4 @@ class HashMap2:
         return self.__count
 
     def __hash(self, key: Any) -> int:
-        pass
+        return hash(key) % len(self.__memory)

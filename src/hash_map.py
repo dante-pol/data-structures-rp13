@@ -153,7 +153,7 @@ class HashMap2:
         pass
 
     def count(self) -> int:
-        pass
+        return self.__count
 
     def __hash(self, key: Any) -> int:
         pass

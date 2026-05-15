@@ -57,6 +57,11 @@ class HashMap1:
 
         return None
 
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(n)
+
+
     def get(self, key: Any) -> Any:
         index = self.__hash(key)
 
@@ -69,6 +74,11 @@ class HashMap1:
                 return self.__memory[i]
 
         raise ValueError("Не существует элемента с таким ключём")
+
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(n)
+
 
     def remove(self, key: Any) -> Any:
         index = self.__hash(key)
@@ -93,11 +103,25 @@ class HashMap1:
 
         raise ValueError("Нет элемента с искомым ключем")
 
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(n)
+
+
     def count(self) -> int:
         return self.__count
 
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(1)
+
+
     def __hash(self, key: Any) -> int:
         return hash(key) % len(self.__memory)
+
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(1)
 
 
 # Цепочный способ разрешения коллизий
@@ -133,6 +157,10 @@ class HashMap2:
 
         return None
 
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(n)
+
 
     def get(self, key: Any) -> Any:
         index = self.__hash(key)
@@ -148,6 +176,11 @@ class HashMap2:
                 return bucket[i][1]
 
         raise ValueError("Нет искомого ключа")
+
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(n)
+
 
     def remove(self, key: Any) -> Any:
         index = self.__hash(key)
@@ -166,8 +199,21 @@ class HashMap2:
 
         raise ValueError("Нет искомого ключа")
 
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(n)
+
+
     def count(self) -> int:
         return self.__count
 
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(1)
+
     def __hash(self, key: Any) -> int:
         return hash(key) % len(self.__memory)
+
+    # Лучший O(1)
+    # Средний O(1)
+    # Худший O(1)

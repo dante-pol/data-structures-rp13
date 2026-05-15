@@ -112,7 +112,27 @@ class HashMap2:
         self.__count = 0
 
     def add(self, key : Any, value: Any) -> None:
-        pass
+        index = self.__hash(key)
+
+        if self.__memory[index] is None:
+            self.__memory[index] = [ (key, value) ]
+            self.__count += 1
+
+            return None
+
+        bucket = self.__memory[index]
+
+        for i in range(len(bucket)):
+            if key == bucket[i][0]:
+                bucket[i] = (key, value)
+
+                return None
+
+            bucket.append((key, value))
+            self.__count += 1
+
+        return None
+
 
     def get(self, key: Any) -> Any:
         pass

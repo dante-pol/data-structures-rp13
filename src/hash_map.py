@@ -96,7 +96,7 @@ class HashMap1:
         raise ValueError("Нет элемента с искомым ключем")
 
     def count(self) -> int:
-        pass
+        return self.__count
 
     def __hash(self, key: Any) -> int:
         return hash(key) % len(self.__memory)

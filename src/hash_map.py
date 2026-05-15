@@ -1,5 +1,7 @@
 from typing import Any
 
+from Cryptodome.SelfTest.Cipher.test_DES3 import index
+
 
 # Линейный способ разрешения коллизий
 
@@ -68,10 +70,30 @@ class HashMap1:
             if self.__keys[i] == key:
                 return self.__memory[i]
 
-        raise ValueError("Не существует элемента с таким ключем")
+        raise ValueError("Не существует элемента с таким ключём")
 
     def remove(self, key: Any) -> Any:
-        pass
+        index = self.__hash(key)
+
+        if self.__keys[index] == key:
+
+            buff = self.__memory[index]
+
+            self.__memory[index] = None
+            self.__keys[index] = None
+
+            return buff
+
+        for i in range(len(self.__memory)):
+            if self.__keys[i] == key:
+                buff = self.__memory[i]
+
+                self.__memory[i] = None
+                self.__keys[i] = None
+
+                return buff
+
+        raise ValueError("Нет элемента с искомым ключем")
 
     def count(self) -> int:
         pass

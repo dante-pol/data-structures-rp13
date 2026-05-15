@@ -57,9 +57,18 @@ class HashMap1:
 
         return None
 
-
     def get(self, key: Any) -> Any:
-        pass
+        index = self.__hash(key)
+
+        if self.__keys[index] == key:
+            return self.__memory[index]
+
+        for i in range(len(self.__memory)):
+
+            if self.__keys[i] == key:
+                return self.__memory[i]
+
+        raise ValueError("Не существует элемента с таким ключем")
 
     def remove(self, key: Any) -> Any:
         pass

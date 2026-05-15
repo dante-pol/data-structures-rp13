@@ -1,6 +1,17 @@
 from typing import Any
 
-from Cryptodome.SelfTest.Cipher.test_DES3 import index
+
+def malloc(size):
+    return [None] * size
+
+
+def realloc(memory, new_size):
+    new_memory = malloc(new_size)
+
+    for i in range(0, len(memory), 1):
+        new_memory[i] = memory[i]
+
+    return new_memory
 
 
 # Линейный способ разрешения коллизий
@@ -8,23 +19,10 @@ from Cryptodome.SelfTest.Cipher.test_DES3 import index
 class HashMap1:
 
     def __init__(self, size: int = 16):
-        self.__keys = [None] * size
-        self.__memory = [None] * size
+        self.__keys = malloc(size)
+        self.__memory = malloc(size)
 
         self.__count = 0
-
-    @staticmethod
-    def __malloc(type, number):
-        return [None] * number
-
-    @staticmethod
-    def __realloc(memory, new_size):
-        new_memory = HashMap1.__malloc(int, new_size)
-
-        for i in range(0, len(memory), 1):
-            new_memory[i] = memory[i]
-
-        return new_memory
 
     def add(self, key: Any, value: Any) -> None:
         index = self.__hash(key)
@@ -55,7 +53,7 @@ class HashMap1:
         if fill_factor >= 0.7:
 
             new_size = len(self.__memory) * 2
-            HashMap1.__realloc(self.__memory, new_size)
+            realloc(self.__memory, new_size)
 
         return None
 
@@ -100,3 +98,30 @@ class HashMap1:
 
     def __hash(self, key: Any) -> int:
         return hash(key) % len(self.__memory)
+
+
+# Цепочный способ разрешения коллизий
+
+
+class HashMap2:
+
+    def __init__(self, size: int = 16):
+        self.__memory = malloc(size)
+        self.__keys = malloc(size)
+
+        self.__count = 0
+
+    def add(self, key : Any, value: Any) -> None:
+        pass
+
+    def get(self, key: Any) -> Any:
+        pass
+
+    def remove(self, key: Any) -> Any:
+        pass
+
+    def count(self) -> int:
+        pass
+
+    def __hash(self, key: Any) -> int:
+        pass

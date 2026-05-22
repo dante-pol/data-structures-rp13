@@ -1,23 +1,6 @@
 from __future__ import annotations
 from typing import Any
 
-
-# ---------------- LinkedList (Односвязный список) -----------------
-
-# ------- Field (Поля) -------
-# 1. count - кол-во элементов списка
-# 2. head -
-
-# ------- Interface (Интерфейс) -------
-# 1. add_last(data): None  - добавляет элемент data в конец списка
-# 2. add_head(data): None  - добавляет элемент data в начало списка
-# 3. insert(position, data): None  - вставляет элемент data на позицию position
-# 4. get(position): Node | None  - возвращает узел (Node) по позиции. если такой позиции нет, вернуть None
-# 5. remove(data): Node  - удаляет первое вхождение элемента data и возвращает его узел
-# 6. find(data): Node | None
-# 7. count(data): int
-# 8. is_empty(): bool
-
 class Node:
 
     def __init__(self, data: Any, next: Node =None):

@@ -7,32 +7,10 @@ class DoubleLinkedList:
     class Node:
 
         def __init__(self, data: Any, next: Self = None, prev: Self = None):
-            self.__data = data
+            self.data = data
 
-            self.__next = next
-            self.__prev = prev
-
-        def __get_data(self) -> Any:
-            return self.__data
-
-        def __set_data(self, new_data: Any) -> None:
-            self.__data = new_data
-
-        def __get_next(self) -> Self:
-            return self.__next
-
-        def __set_next(self, new_next) -> None:
-            self.__next = new_next
-
-        def __get_prev(self) -> Self:
-            return self.__prev
-
-        def __set_prev(self, new_prev) -> None:
-            self.__prev = new_prev
-
-        data = property(__get_data, __set_data)
-        next = property(__get_next, __set_next)
-        prev = property(__get_prev, __set_prev)
+            self.next = next
+            self.prev = prev
 
 
     def __init__(self):

@@ -1,4 +1,4 @@
-from src.stack import Stack
+from stack.stack import Stack
 
 
 def test_peek():

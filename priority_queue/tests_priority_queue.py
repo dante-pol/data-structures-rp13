@@ -1,6 +1,6 @@
 import pytest
 
-from src.priority_queue import PriorityQueue
+from priority_queue.priority_queue import PriorityQueue
 
 
 @pytest.fixture()

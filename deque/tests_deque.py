@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.deque import Deque
+from deque.deque import Deque
 
 
 @pytest.fixture()

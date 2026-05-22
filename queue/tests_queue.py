@@ -1,4 +1,4 @@
-from src.queue import Queue
+from queue.queue import Queue
 
 
 def test_peek():

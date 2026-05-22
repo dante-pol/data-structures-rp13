@@ -1,6 +1,6 @@
 import pytest
 
-from src.hash_map import HashMap2
+from hash_map.hash_map import HashMap2
 
 
 @pytest.fixture()

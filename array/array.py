@@ -1,24 +1,5 @@
 from typing import Any
 
-# List - динамический массив
-# Поля
-# 1. Size
-# 2. Count
-# 3. Memory
-
-# Интерфейс
-# add(item) - добавить элемент в конец списка
-# add_head(item) - добавить элемент в начало списка
-# insert(index, item) - вставить элемент по индексу
-# remove(item) - удалить первое вхождение элемента
-# pop(index) - удалить элемент по индексу
-# count(item) - кол-во вхождений элемента
-# find(item) - найти первое вхождение элемента. если такого элемента нет, вернуть -1
-# is_empty() - вернуть кол-во элементов
-
-# reverse() - развернуть массив
-# sort(key, order_by) - отсортировать текущий массив
-
 class List:
 
     @staticmethod
@@ -56,6 +37,7 @@ class List:
     # Средний O(1)
     # Худший O(n)
 
+
     def remove(self, data: Any) -> None:
 
         if self.__count == 0: return None
@@ -84,6 +66,7 @@ class List:
     # Средний O(n)
     # Худший O(n)
 
+
     def sort(self,  order_by= lambda x, y: x < y, key= lambda obj: obj):
 
         for i in range(0, self.__count - 1, 1):
@@ -95,12 +78,14 @@ class List:
     # Средний O(n^2)
     # Худший O(n^2)
 
+
     def is_empty(self) -> bool:
         return self.__count == 0
 
     # Лучший O(1)
     # Средний O(1)
     # Худший O(1)
+
 
     def add_head(self, data: Any) -> None:
         self.__try_expand_memory()
@@ -114,7 +99,6 @@ class List:
     # Лучший O(1)
     # Средний O(n)
     # Худший O(n)
-
 
 
     def insert(self, data: Any, insert_index: int) -> None:
@@ -132,19 +116,22 @@ class List:
     # Средний O(n)
     # Худший O(n)
 
+
     def pop(self, pop_index: int) -> None:
         if pop_index < 0 or pop_index > self.__count:  raise ValueError("List index out of range")
 
         self.__memory[pop_index] = None
 
         for i in range(pop_index, self.__count - 1, 1):
-            self.__memory[i + 1] = self.__memory[i]
+            self.__memory[i] = self.__memory[i + 1]
 
+        self.__memory[self.__count - 1] = None
         self.__count -= 1
 
     # Лучший O(1)
     # Средний O(n)
     # Худший O(n)
+
 
     def count(self, item: Any) -> int:
         count = 0
@@ -160,6 +147,7 @@ class List:
     # Средний O(n)
     # Худший O(n)
 
+
     def find(self, item: Any) -> int:
         for i in range(self.__count):
 
@@ -172,9 +160,15 @@ class List:
     # Средний O(n)
     # Худший O(n)
 
+
     def reverse(self) -> None:
         for i in range(self.__count // 2):
             self.__memory[i], self.__memory[self.__count - 1 - i] = self.__memory[self.__count - 1 - i], self.__memory[i]
+
+    # Лучший O(n)
+    # Средний O(n)
+    # Худший O(n)
+
 
     def __try_expand_memory(self) -> None:
 

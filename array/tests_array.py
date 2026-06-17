@@ -1,6 +1,6 @@
 import pytest
 
-from src.array import List
+from array.array import List
 
 
 @pytest.fixture
